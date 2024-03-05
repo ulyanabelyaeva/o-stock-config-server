@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    #Профиль Spring, связанный с репозиторием. native - файловая система или classpath
+    active: composite
+  cloud:
+    config:
+      server:
+        composite:
+        - type: native
+          # Локальная конфигурация: это может быть classpath или конкретный каталог в файловой системе.
+          # Определение конкретной папки в файловой системе: file:///{FILE_PATH}
+          # через classpath: classpath:/config
+          # Атрибут classpath заставляет Spring Cloud Config Server искать файлы в папке src/main/resources/config
+          search-locations: classpath:/config
+        bootstrap: true
+server:
+  port: 8071
