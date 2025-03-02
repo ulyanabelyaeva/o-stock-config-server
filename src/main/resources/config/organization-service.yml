@@ -17,6 +17,11 @@ spring:
     validationQuery: SELECT 1
   database:
     driverClassName: org.postgresql.Driver
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/spmia-realm
 
 management:
   endpoints:
@@ -38,3 +43,13 @@ logging:
   level:
     org.springframework.web: WARN
     com.optimagrowth: DEBUG
+    org.springframework.security: DEBUG
+
+keycloak:
+  realm: spmia-realm
+  auth-server-url: http://localhost:8080
+  ssl-required: external
+  resource: ostock
+  credentials.secret: edOFCheutEAlEAPsXqCUSbqxyUtZeAet
+  use-resource-role-mappings: true
+  bearer-only: true
