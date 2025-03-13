@@ -22,6 +22,16 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080/realms/spmia-realm
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: orgChangeTopic
+          content-type: application/json
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
 
 management:
   endpoints:
