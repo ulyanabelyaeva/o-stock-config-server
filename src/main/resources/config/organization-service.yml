@@ -32,6 +32,12 @@ spring:
         binder:
           zkNodes: localhost
           brokers: localhost
+  zipkin:
+    baseUrl: http://localhost:9411
+    discovery-client-enabled: false
+  sleuth:
+    sampler:
+      percentage: 1
 
 management:
   endpoints:
